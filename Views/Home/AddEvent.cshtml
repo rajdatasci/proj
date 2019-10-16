@@ -1,0 +1,60 @@
+@{
+  ViewData["title"] = "Add New Event";
+}
+
+<h1>@ViewData["title"]</h1>
+
+<form action="/home/index" method="post">
+    <div class="form-group">
+        <input type="number" name="Id" class="form-control" required placeholder="Event ID">
+    </div>
+    <div class="form-group">
+        <input type="text" name="Name" class="form-control" required placeholder="Event Name">
+    </div>
+    <div class="form-group">
+        <input type="text" name="Location" class="form-control" required placeholder="Event Location">
+    </div>
+    <div class ="form-row">
+         <div class="form-group col-md-4">
+            <input type="date" name="Date" class="form-control" required placeholder="Date of Event">
+         </div>
+         <div class="form-group col-md-3">
+             <select id="TimeStart" class="form-control">
+                <option selected>Time...</option>
+                     @for(var i=1;i<=12;i++)
+                       {
+                          <option>@i:00</option>
+                         }     
+            </select>
+         </div>
+         <div class="form-group col-md-1">
+            <select id="ts" class="form-control">
+                 <option selected>AM</option>
+                    
+                 <option>PM</option>
+             </select>        
+         </div>
+          <div class="form-group col-md-3">
+            <select id="TimeFinish" class="form-control">
+
+             <option selected>Time...</option>
+                     @for(var i=1;i<=12;i++)
+                       {
+                          <option>@i:00</option>
+                         }     
+            </select>
+         </div>
+         <div class="form-group col-md-1">
+            <select id="tf" class="form-control">
+                 <option selected>AM</option>
+                    
+                 <option>PM</option>
+             </select>        
+
+    </div>
+       
+    <div class="form-group">
+        <input type="text" name="Details" class="form-control" required placeholder="Add details">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Event">
+</form>

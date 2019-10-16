@@ -1,0 +1,47 @@
+﻿@{
+  List<Event> Events = (List<Event>)ViewData["Events"];
+}
+
+<div style="background-color:orange;" class="jumbotron text-center">
+  <h1>EVENTS</h1>
+  <p>Let us connect at events in Winnipeg</p> 
+</div>
+
+<form>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    </div>
+</form>
+@foreach (var item in Events)
+{
+    <div class="panel" style="border: 1px solid lightgrey; margin-top: 20px; position:relative; background-color: lightblue;">
+        <div class="panel-body">
+          <div class="row">
+            <div class ="col-sm-4">
+                <h3>@item.Name</h3>
+                <p>Location: @item.Location</p>
+                <p>Date: @item.Date.ToShortDateString()</p>
+                <p>Start Time:@item.TimeStart</p>
+                <p>UPTO : @item.TimeFinish</p>
+                <p>Description:@item.Details</p>
+            </div>
+            <div class ="col-sm-4">
+              <img width="300" height="188" class="lazy" style="display: inline;" src="//d1marr3m5x4iac.cloudfront.net/images/perspectivecrop300by250/I0-001/004/258/070-9.jpeg_/shinedown-70.jpeg" data-original="//d1marr3m5x4iac.cloudfront.net/images/perspectivecrop300by250/I0-001/004/258/070-9.jpeg_/shinedown-70.jpeg">
+            </div>
+          </div>
+        </div>        
+    </div>
+    <div class ="panel-footer">
+      <form>
+        <input type="submit" class ="button button-primary" value="DETAILS">
+      </form>
+    </div>
+}
+
