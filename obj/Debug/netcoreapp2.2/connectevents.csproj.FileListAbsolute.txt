@@ -31,3 +31,4 @@ C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\connectevents.csproj.CopyCo
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddEvent.g.cshtml.cs
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Auth\login.g.cshtml.cs
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Auth\register.g.cshtml.cs
+C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\List.g.cshtml.cs

@@ -39,19 +39,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEvent">Add Event</a>
-
-                        </li>
+                        
                         @if(user == null)
                         {
-                        <li><a asp-area="" asp-controller="Auth" asp-action="Login">Login</a></li>
+                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a></li>
                         }
                         @if(user != null)
                         {
-                        <li><a asp-area="" asp-controller="Product" asp-action="List">Products</a></li>
-                        <li><a asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEvent">Add Event</a></li>
+                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a></li>
                          }
 
                     </ul>

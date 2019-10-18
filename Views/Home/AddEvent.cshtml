@@ -4,10 +4,8 @@
 
 <h1>@ViewData["title"]</h1>
 
-<form action="/home/index" method="post">
-    <div class="form-group">
-        <input type="number" name="Id" class="form-control" required placeholder="Event ID">
-    </div>
+<form action="/home/index" method="post" enctype="multipart/form-data">
+    
     <div class="form-group">
         <input type="text" name="Name" class="form-control" required placeholder="Event Name">
     </div>
@@ -19,7 +17,7 @@
             <input type="date" name="Date" class="form-control" required placeholder="Date of Event">
          </div>
          <div class="form-group col-md-3">
-             <select id="TimeStart" class="form-control">
+             <select name="TimeStart" class="form-control">
                 <option selected>Time...</option>
                      @for(var i=1;i<=12;i++)
                        {
@@ -28,14 +26,14 @@
             </select>
          </div>
          <div class="form-group col-md-1">
-            <select id="ts" class="form-control">
+            <select name="ts" class="form-control">
                  <option selected>AM</option>
                     
                  <option>PM</option>
              </select>        
          </div>
-          <div class="form-group col-md-3">
-            <select id="TimeFinish" class="form-control">
+        <div class="form-group col-md-3">
+            <select name="TimeFinish" class="form-control">
 
              <option selected>Time...</option>
                      @for(var i=1;i<=12;i++)
@@ -45,16 +43,20 @@
             </select>
          </div>
          <div class="form-group col-md-1">
-            <select id="tf" class="form-control">
+            <select name="tf" class="form-control">
                  <option selected>AM</option>
                     
                  <option>PM</option>
-             </select>        
+             </select>   
+        </div>     
 
     </div>
        
     <div class="form-group">
         <input type="text" name="Details" class="form-control" required placeholder="Add details">
+    </div>
+    <div class="form-group">
+        <input type="file" name="picture" class="form-control" placeholder="Picture">
     </div>
     <input type="submit" class="btn btn-primary" value="Add Event">
 </form>

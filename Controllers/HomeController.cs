@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using connectevents.Models;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace connectevents.Controllers
 {
@@ -15,7 +16,7 @@ namespace connectevents.Controllers
         public IActionResult Index()
         {
             ConnectEvent e = new ConnectEvent();
-            ViewData["Events"] = e.getEventsFromDB();
+            ViewBag.Event = e.getEventsFromDB();
             return View();
         }
 
@@ -27,54 +28,40 @@ namespace connectevents.Controllers
         {
             return View();
         }
+
+         public IActionResult List( int Id)
+        {
+            ConnectEvent e = new ConnectEvent();
+            ViewBag.Event = e.getEventsFromDB(Id);
+            return View();
+        }
         [HttpPost]
-        public IActionResult Index(IFormCollection formCollection)
+        public IActionResult Index(String name, String location,DateTime date,string timeStart, string ts, string timeFinish, string tf, string details, IFormFile picture )
         {
             Event newevent=new Event();
-             foreach (var item in formCollection)
-            {
-                if(item.Key == "Name")
-                {
-                    newevent.Name = item.Value;
-                }
-                if(item.Key == "Location")
-                {
-                    newevent.Location = item.Value;
-                }
-                if(item.Key == "Id")
-                {
-                    newevent.Id = int.Parse(item.Value);
-                }
-                if(item.Key == "Date")
-                {
-                    newevent.Date =Convert.ToDateTime(item.Value);
-                }
-                if(item.Key == "TimeStart")
-                {
-                    newevent.TimeStart =Convert.ToString(item.Value);
 
-                }
-                 if(item.Key == "ts")
-                {
-                    newevent.ts =Convert.ToString(item.Value);
-                }
-                if(item.Key == "TimeFinish")
-                {
-                    newevent.TimeFinish =Convert.ToString(item.Value);
-                }
-                 if(item.Key == "tf")
-                {
-                    newevent.tf =Convert.ToString(item.Value);
-                }
-                
-                if(item.Key == "Details")
-                {
-                    newevent.Details =item.Value;
-                }
+            string pictureUrl = null;
+            if(picture.Length > 0)
+            {
+                var fileName = Path.GetFileName(picture.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/images", fileName);
+                var stream = new FileStream(filePath, FileMode.Create);
+                picture.CopyTo(stream);
+                pictureUrl = "/images/" + fileName;
+
             }
+            newevent.Name=name;
+            newevent.Location=location;
+            newevent.Date=date;
+            newevent.TimeStart =timeStart;
+            newevent.ts=ts;
+            newevent.TimeFinish=timeFinish;
+            newevent.tf=tf;
+            newevent.PictureUrl=pictureUrl;
+
             ConnectEvent e = new ConnectEvent();
             e.addEventToDB(newevent);
-            ViewData["Events"] = e.getEventsFromDB();
+            ViewBag.Event = e.getEventsFromDB();
 
             return View();
         }

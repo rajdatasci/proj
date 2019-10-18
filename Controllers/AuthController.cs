@@ -40,7 +40,7 @@ namespace SessionManagement.Controllers
       try
       {
         var con = this.CreateConnection(); // call the connection function to get the connection
-        string cmdText = $"select * from users where email = '{email}' and password = '{password}'"; // creating the query
+        string cmdText = $"select * from user where emailAddress = '{email}' and psssword = '{password}'"; // creating the query
         MySqlCommand cmd = new MySqlCommand(cmdText, con); // creating the mysql command
         var result = cmd.ExecuteReader(); // executing the query
         if(result.HasRows) // check whether query result has any rows or not
@@ -87,7 +87,7 @@ namespace SessionManagement.Controllers
       try
       {
         var con = this.CreateConnection();
-        string cmdText = $"insert into users(firstName, lastName, email, password) values('{firstName}', '{lastName}', '{email}', '{password}')";
+        string cmdText = $"insert into user(Name, emailAddress, psssword) values('{firstName}''{lastName}', '{email}', '{password}')";
         MySqlCommand cmd = new MySqlCommand(cmdText, con);
         cmd.ExecuteNonQuery();
         ViewData["registrationSuccessfull"] = true;
