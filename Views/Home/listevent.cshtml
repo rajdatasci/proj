@@ -1,34 +1,9 @@
-﻿@{
+@{
   List<Event> Events = (List<Event>)ViewBag.Event;
+   
 }
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div >
-        <img src="/images/pu.jpg" width="350" Height ="280" alt="Winnipeg">
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <br>
-      <br>
-      <p style="text-align:center;">The city of Winnipeg is the soul of Manitoba. Explore The Forks for a historic experience rooted in shopping and good eating, enjoy festivals and concerts on the green, or tour the Exchange District's exhibits and galleries. Explore events for the whole family below!</p> 
-
-    </div>
-    <div class="col-sm-4">
-      <div >
-        <img src="/images/back-winnipeg.jpg" width="350" Height ="280" alt="Winnipeg">
-      </div>
-   </div>
-  </div>  
-</div>
-<br>
-<hr>
-<br>
-<h3 style="text-align:center;">UPCOMING EVENTS</h3>
-<br>
-<hr>
-
+<h2>Events List</h2>
 
 @foreach (var item in Events)
 {

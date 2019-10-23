@@ -12,6 +12,7 @@ public class Event
 
     public string TimeFinish{get;set;}
     public string tf{get; set;}
+    public int userid{get;set;}
 
     public string PictureUrl{get;set;}
 

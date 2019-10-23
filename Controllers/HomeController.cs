@@ -20,13 +20,36 @@ namespace connectevents.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Events()
         {
             return View();
         }
+         public IActionResult EventsWeek()
+        {
+            ConnectEvent e = new ConnectEvent();
+            ViewBag.Event = e.getEventsWeek();
+            return View("listevent"); 
+           
+        }
+        public IActionResult EventsToday()
+        {
+            ViewBag.Event = null;
+            ConnectEvent e = new ConnectEvent();
+            ViewBag.Event = e.getEventsToday();
+            return View("listevent");  
+        }
         public IActionResult AddEvent()
         {
-            return View();
+             var user = HttpContext.Session.GetString("user");
+            if(user == null)
+            {
+              return Redirect("/auth/login");
+            }
+            else
+            {
+              //ViewData["Message"] = "Add New Event.";
+              return View();
+            }
         }
 
          public IActionResult List( int Id)
@@ -35,9 +58,20 @@ namespace connectevents.Controllers
             ViewBag.Event = e.getEventsFromDB(Id);
             return View();
         }
+         public IActionResult ListEvent()
+        {
+            ConnectEvent e = new ConnectEvent();
+            ViewBag.Event = e.getEventsFromDB();
+            return View();
+        }
         [HttpPost]
         public IActionResult Index(String name, String location,DateTime date,string timeStart, string ts, string timeFinish, string tf, string details, IFormFile picture )
         {
+            var userId = HttpContext.Session.GetString("id");
+             if(userId == null)
+            {
+              return Redirect("/auth/login");
+            }
             Event newevent=new Event();
 
             string pictureUrl = null;
@@ -57,7 +91,9 @@ namespace connectevents.Controllers
             newevent.ts=ts;
             newevent.TimeFinish=timeFinish;
             newevent.tf=tf;
+            newevent.Details=details;
             newevent.PictureUrl=pictureUrl;
+            newevent.userid=Convert.ToInt32(userId);
 
             ConnectEvent e = new ConnectEvent();
             e.addEventToDB(newevent);

@@ -1,11 +1,18 @@
-@{
-  ViewData["title"] = "Add New Event";
-}
 
-<h1>@ViewData["title"]</h1>
+
+<div class="container">
+  <img src="/images/back1.jpg" width="1100" Height ="200" alt="Winnipeg">
+</div>
+<hr>
+<h2 style="text-align:center">Add New Upcoming Event</h2>
+<p style="text-align:center"> Welcome to Winnipeg Events Website </p>
+<hr>
+
+
 
 <form action="/home/index" method="post" enctype="multipart/form-data">
-    
+<div class="container" style="background-color:lightblue">
+    <br>
     <div class="form-group">
         <input type="text" name="Name" class="form-control" required placeholder="Event Name">
     </div>
@@ -59,4 +66,5 @@
         <input type="file" name="picture" class="form-control" placeholder="Picture">
     </div>
     <input type="submit" class="btn btn-primary" value="Add Event">
+</div>
 </form>

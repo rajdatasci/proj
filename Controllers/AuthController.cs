@@ -45,9 +45,14 @@ namespace SessionManagement.Controllers
         var result = cmd.ExecuteReader(); // executing the query
         if(result.HasRows) // check whether query result has any rows or not
         {
-
-          HttpContext.Session.SetString("user", email); // setting the the session in HttpContext
-
+          while(result.Read())
+          {
+            HttpContext.Session.SetString("user", email); // setting the the session in HttpContext
+            if(result["id"] != null){
+              HttpContext.Session.SetString("id", result["id"].ToString());
+            }
+          }
+         
           ViewData["error"] = false;
           ViewData["loginSuccessfull"] = true;
           ViewData["userNotFound"] = false;

@@ -32,3 +32,5 @@ C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddEvent.g
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Auth\login.g.cshtml.cs
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Auth\register.g.cshtml.cs
 C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\List.g.cshtml.cs
+C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\Events.g.cshtml.cs
+C:\Users\fundu\connectevents\obj\Debug\netcoreapp2.2\Razor\Views\Home\listevent.g.cshtml.cs

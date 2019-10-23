@@ -16,6 +16,7 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 @{
   @using Microsoft.AspNetCore.Http
@@ -37,17 +38,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <div class="dropdown">
+                             <button class="nav-link text-dark dropdown" type="button" data-toggle="dropdown">Events
+                              <span class="caret"></span></button>
+                                 <ul class="dropdown-menu">
+                                    <li><a  class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListEvent">List of Events</a></li>
+                                    <li><a  class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventsWeek">Events in Upcoming Week</a></li>
+                                    <li><a  class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventsToday">Today Events</a></li>
+                                  </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">News</a>
                         </li>
                         
                         @if(user == null)
                         {
-                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a></li>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a></li>
+                        </div>
                         }
                         @if(user != null)
                         {
                         <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEvent">Add Event</a></li>
-                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                        </div>
                          }
 
                     </ul>

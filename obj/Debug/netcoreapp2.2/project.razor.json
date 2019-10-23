@@ -2981,6 +2981,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\listevent.cshtml",
+      "TargetPath": "Views\\Home\\listevent.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -3013,6 +3018,11 @@
     {
       "FilePath": "Views\\Home\\AddEvent.cshtml",
       "TargetPath": "Views\\Home\\AddEvent.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Events.cshtml",
+      "TargetPath": "Views\\Home\\Events.cshtml",
       "FileKind": "mvc"
     },
     {
