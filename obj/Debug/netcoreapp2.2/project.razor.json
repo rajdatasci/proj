@@ -2966,8 +2966,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\List.cshtml",
-      "TargetPath": "Views\\Home\\List.cshtml",
+      "FilePath": "Views\\Shared\\List.cshtml",
+      "TargetPath": "Views\\Shared\\List.cshtml",
       "FileKind": "mvc"
     },
     {

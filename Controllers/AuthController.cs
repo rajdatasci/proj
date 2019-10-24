@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
-namespace SessionManagement.Controllers
+namespace connectevents.Controllers
 {
   public class AuthController : Controller
   {

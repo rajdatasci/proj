@@ -90,7 +90,7 @@ namespace connectevents
             var con = this.CreateConnection();
 
             // creating the mysql command/query that I want to run
-            MySqlCommand cmd = new MySqlCommand("select * from event", con);
+            MySqlCommand cmd = new MySqlCommand("select * from event order by date desc;", con);
 
             // executy the command
             var result = cmd.ExecuteReader();

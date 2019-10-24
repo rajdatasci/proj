@@ -56,12 +56,16 @@ namespace connectevents.Controllers
         {
             ConnectEvent e = new ConnectEvent();
             ViewBag.Event = e.getEventsFromDB(Id);
+            Questionanswer question= new Questionanswer();
+            
+            ViewBag.QUEST =question.getQuestions(Id);
             return View();
         }
          public IActionResult ListEvent()
         {
             ConnectEvent e = new ConnectEvent();
             ViewBag.Event = e.getEventsFromDB();
+            
             return View();
         }
         [HttpPost]

@@ -1,0 +1,89 @@
+@{
+    Event Event= (Event)ViewBag.Event;
+    List<Question> QUEST= (List<Question>)ViewBag.QUEST;
+    List<Answer> ANS =(List<Answer>)ViewBag.ANS;
+
+}
+<style>
+    body {
+        background-image: url('/images/back2.jpg');
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    p{
+        background-color: whitesmoke;
+    }
+    h2{
+        background-color: white;
+    }
+</style>
+
+<h2>@Event.Name</h2>
+<div class="container" style="background-color:light blue">
+    <div class ="row">
+        <div class= "col-sm-4">
+            <img src="@Event.PictureUrl" alt="Event Image" width="350">
+        </div>
+
+        <div class="col-sm-8">
+            <form action ="/Question/AddQuestion" method ="post">
+
+                <p>DETAILS: @Event.Details</p>
+                 <hr>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Question?</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" name="Question"></textarea>
+                <input type="hidden" name="id" value="@Event.Id">
+                <input type="submit" class="btn btn-primary" value="Submit">      
+           
+            </form>
+     </div>   
+
+    </div>
+    <div class= "row">
+        @foreach (var item in QUEST)
+        {
+            <div class ="container">
+                <p>@item.Quest</p>
+                <form action="/Question/GetAnswers">
+                    <input type="hidden" name="Qid" value="@item.Id">
+                    <input type="hidden" name="id" value="@Event.Id">
+
+                </form>
+                
+                @if(ANS ==null)
+                {
+                    <p> No Answer</p>
+                }
+                else
+                {
+                    @foreach (var ans in ANS)
+                    {
+                        <div class="container">
+                            <p style="text-align:right">@ans.answer</p>
+                        </div>
+                    }
+                }
+                <form action="/Question/AddAnswer" method="post">
+                   
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Add Answer!</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="ans"></textarea>
+                    <input type="hidden" name="Qid" value="@item.Id">
+                    <input type="hidden" name="Id" value="@Event.Id">
+
+                    <input type="submit" class="btn btn-primary" value="Submit">      
+                </form>
+               
+            </div>
+            
+        }
+    </div>
+
+</div>
+
+
